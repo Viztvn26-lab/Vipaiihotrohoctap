@@ -4,6 +4,7 @@ import { AnalysisResult, UploadedFile, HistoryItem } from './types';
 import { TetBackground, Lantern, ApricotBlossom, PeachBlossom } from './components/TetDecorations';
 import { Fireworks } from './components/Fireworks';
 import { ChatAssistant } from './components/ChatAssistant';
+import { ImageGenerator } from './components/ImageGenerator';
 
 declare global {
   interface Window {
@@ -177,7 +178,7 @@ const App: React.FC = () => {
         </div>
 
         {/* Content Area */}
-        <main className="transition-all duration-500">
+        <main className="transition-all duration-500 pb-20">
           {activeTab === 'history' ? (
             <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border-2 border-yellow-200 min-h-[400px]">
               <h2 className="text-2xl font-tet font-bold text-red-800 mb-6 flex items-center gap-2 border-b border-red-100 pb-2">
@@ -232,7 +233,7 @@ const App: React.FC = () => {
               )}
             </div>
           ) : (
-            <div className="space-y-8">
+            <div className="space-y-12">
               {/* Upload & Input Section */}
               <div className="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-lg border-2 border-yellow-300 relative overflow-hidden">
                 {/* Background Pattern for Input Box */}
@@ -303,6 +304,11 @@ const App: React.FC = () => {
                 </button>
                 {error && <p className="mt-4 text-red-600 text-center bg-red-100 p-2 rounded-lg">{error}</p>}
               </div>
+
+               {/* Image Generator Section */}
+               <div className="mt-8">
+                 <ImageGenerator />
+               </div>
 
               {/* NEWS CARD RESULT DISPLAY */}
               {result && (
